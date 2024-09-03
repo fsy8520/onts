@@ -1,0 +1,420 @@
+@prefix : <http://www.semanticweb.org/feisi/ontologies/2024/6/crop/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/feisi/ontologies/2024/6/crop/> .
+
+<http://www.semanticweb.org/feisi/ontologies/2024/6/crop> rdf:type owl:Ontology ;
+                                                           rdfs:comment "这是关于作物病害的本体"@zh .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#为害
+:为害 rdf:type owl:ObjectProperty ;
+    rdfs:domain :病害 ;
+    rdfs:range :发病部位 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#健康图像有
+:健康图像有 rdf:type owl:ObjectProperty ;
+       rdfs:domain :作物 ;
+       rdfs:range :作物健康图像 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#病害图像有
+:病害图像有 rdf:type owl:ObjectProperty ;
+       rdfs:domain :病害 ;
+       rdfs:range :作物病害图像 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#病害有
+:病害有 rdf:type owl:ObjectProperty ;
+     rdfs:domain :作物 ;
+     rdfs:range :病害 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/传播
+:传播 rdf:type owl:ObjectProperty ;
+    rdfs:domain :传播方式 ;
+    rdfs:range :病原 ;
+    rdfs:comment "传播方式--(传播)-->病原"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/发病于
+:发病于 rdf:type owl:ObjectProperty ;
+     rdfs:domain :病害 ;
+     rdfs:range :发病时期 ;
+     rdfs:comment "作物--（发病于）-->发病部位"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/属
+:属 rdf:type owl:ObjectProperty ;
+   rdfs:domain :病原 ;
+   rdfs:range :分类地位 ;
+   rdfs:comment "病原--(属)-->分类地位"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/归类于
+:归类于 rdf:type owl:ObjectProperty ;
+     rdfs:domain :作物 ;
+     rdfs:range :作物类型 ;
+     rdfs:comment "作物--(归类于)-->作物类型"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/影响
+:影响 rdf:type owl:ObjectProperty ;
+    rdfs:domain :发病因素 ;
+    rdfs:range :病害 ;
+    rdfs:comment "发病因素--(影响)-->病害"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/来源于
+:来源于 rdf:type owl:ObjectProperty ;
+     rdfs:domain :病害 ;
+     rdfs:range :信息来源 ;
+     rdfs:comment "病害--(来源于)-->信息来源"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/症状有
+:症状有 rdf:type owl:ObjectProperty ;
+     rdfs:domain :发病部位 ;
+     rdfs:range :具体症状 ;
+     rdfs:comment """症状类型--(症状有)-->具体症状
+发病部位--(症状有)-->具体症状
+发病阶段--(症状有)-->具体症状"""@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/直接引发
+:直接引发 rdf:type owl:ObjectProperty ;
+      rdfs:domain :初侵染源 ;
+      rdfs:range :病害 ;
+      rdfs:comment "初侵染源--(直接引发)-->病害"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/称
+:称 rdf:type owl:ObjectProperty ;
+   rdfs:domain :病原 ;
+   rdfs:range :拉丁文名称 ;
+   rdfs:comment "病原--(称)-->拉丁文名称"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/致使
+:致使 rdf:type owl:ObjectProperty ;
+    rdfs:domain :病原 ;
+    rdfs:range :病害 ;
+    rdfs:comment "病原--(致使)-->病害"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/防治
+:防治 rdf:type owl:ObjectProperty ;
+    rdfs:domain :防治方法 ;
+    rdfs:range :病害 ;
+    rdfs:comment "防治方法--(防治)-->病害"@zh .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:domain :作物 ;
+                      rdfs:range :作物健康图像 .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/专业书籍
+:专业书籍 rdf:type owl:Class ;
+      rdfs:subClassOf :信息来源 ;
+      rdfs:comment "代表某作物的某病害相关信息来源于专业书籍"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/传播方式
+:传播方式 rdf:type owl:Class ;
+      rdfs:subClassOf :侵染循环 ;
+      rdfs:comment "病原传播的方式"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/作物
+:作物 rdf:type owl:Class ;
+    rdfs:comment "代表具体的作物"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/作物健康图像
+:作物健康图像 rdf:type owl:Class ;
+        rdfs:subClassOf :图像信息 ;
+        rdfs:comment "代表某作物的图像信息"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/作物病害图像
+:作物病害图像 rdf:type owl:Class ;
+        rdfs:subClassOf :图像信息 ;
+        rdfs:comment "代表某病害的图像信息"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/作物类型
+:作物类型 rdf:type owl:Class ;
+      rdfs:comment "代表作物所属类型"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/侵染循环
+:侵染循环 rdf:type owl:Class ;
+      rdfs:comment "病原体侵染过程"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/信息来源
+:信息来源 rdf:type owl:Class ;
+      rdfs:comment "代表某作物的某病害相关信息的来源"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/其他因素
+:其他因素 rdf:type owl:Class ;
+      rdfs:subClassOf :发病因素 ;
+      rdfs:comment "代表影响作物病害发生的具体地理位置信息"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/具体症状
+:具体症状 rdf:type owl:Class ;
+      rdfs:comment "代表某作物不同发病阶段、不同发病部位以及不同症状类型的具体症状"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/农业防治
+:农业防治 rdf:type owl:Class ;
+      rdfs:subClassOf :防治方法 ;
+      rdfs:comment "代表用于防治某作物的某病害的具体农业措施方法"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/分类地位
+:分类地位 rdf:type owl:Class ;
+      rdfs:comment "代表致使某作物的某病害发生的病原体所属的分类地位"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/初侵染源
+:初侵染源 rdf:type owl:Class ;
+      rdfs:subClassOf :侵染循环 ;
+      rdfs:comment "直接引发病害的初侵染源"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/化学防治
+:化学防治 rdf:type owl:Class ;
+      rdfs:subClassOf :防治方法 ;
+      rdfs:comment "代表用于防治某作物的某病害的具体化学措施方法"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/发病因素
+:发病因素 rdf:type owl:Class ;
+      rdfs:comment "代表影响作物病害发生的一系列环境因素" .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/发病时期
+:发病时期 rdf:type owl:Class ;
+      rdfs:comment "代表某作物发病时所处于的阶段"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/发病部位
+:发病部位 rdf:type owl:Class ;
+      rdfs:comment "代表某作物发病于具体的部位"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/图像信息
+:图像信息 rdf:type owl:Class ;
+      rdfs:comment "代表相关的图像数据信息"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/拉丁文名称
+:拉丁文名称 rdf:type owl:Class ;
+       rdfs:comment "代表致使某作物的某病害发生的病原体的拉丁文名称"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/权威网站
+:权威网站 rdf:type owl:Class ;
+      rdfs:subClassOf :信息来源 ;
+      rdfs:comment "代表某作物的某病害相关信息来源于权威网站"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/栽培因素
+:栽培因素 rdf:type owl:Class ;
+      rdfs:subClassOf :发病因素 ;
+      rdfs:comment "代表影响作物病害发生的具体田间分布信息"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/物理防治
+:物理防治 rdf:type owl:Class ;
+      rdfs:subClassOf :防治方法 ;
+      rdfs:comment "代表用于防治某作物的某病害的具体物理措施方法，在文本数据中暂缺实例描述"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/环境因素
+:环境因素 rdf:type owl:Class ;
+      rdfs:subClassOf :发病因素 ;
+      rdfs:comment "代表影响作物病害发生的具体气候状况信息"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/生物防治
+:生物防治 rdf:type owl:Class ;
+      rdfs:subClassOf :防治方法 ;
+      rdfs:comment "代表用于防治某作物的某病害的具体生物措施方法，在文本数据中暂缺实例描述"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/病原
+:病原 rdf:type owl:Class ;
+    rdfs:comment "代表致使某作物某病害发生的具体病原体"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/病害
+:病害 rdf:type owl:Class ;
+    rdfs:comment "代表某作物的具体病害" .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/病毒
+:病毒 rdf:type owl:Class ;
+    rdfs:subClassOf :病原 ;
+    rdfs:comment "代表致使某作物某病害发生的具体病原体是病毒"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/真菌
+:真菌 rdf:type owl:Class ;
+    rdfs:subClassOf :病原 ;
+    rdfs:comment "代表致使某作物某病害发生的具体病原体是真菌"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/细菌
+:细菌 rdf:type owl:Class ;
+    rdfs:subClassOf :病原 ;
+    rdfs:comment "代表致使某作物某病害发生的具体病原体是细菌"@zh .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/防治方法
+:防治方法 rdf:type owl:Class ;
+      rdfs:comment "代表用于防治某作物的某病害的具体措施方法"@zh .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#害虫数量大
+:害虫数量大 rdf:type owl:NamedIndividual ,
+                :其他因素 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#文本数据中暂缺描述
+:文本数据中暂缺描述 rdf:type owl:NamedIndividual ,
+                    :生物防治 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#病残体
+:病残体 rdf:type owl:NamedIndividual ,
+              :初侵染源 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#采用配方施肥
+:采用配方施肥 rdf:type owl:NamedIndividual ,
+                 :农业防治 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#铺挂银灰色膜避蚜
+:铺挂银灰色膜避蚜 rdf:type owl:NamedIndividual ,
+                   :物理防治 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#10%401抗菌剂1000倍液
+<http://www.semanticweb.org/feisi/ontologies/2024/6/crop#10%401抗菌剂1000倍液> rdf:type owl:NamedIndividual ,
+                                                                                   :化学防治 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#《中国农作物病虫害(第三版)》
+<http://www.semanticweb.org/feisi/ontologies/2024/6/crop#《中国农作物病虫害(第三版)》> rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop#气温28~32℃
+<http://www.semanticweb.org/feisi/ontologies/2024/6/crop#气温28~32℃> rdf:type owl:NamedIndividual ,
+                                                                            :环境因素 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/Pyricularia_oryzae_Cav
+:Pyricularia_oryzae_Cav rdf:type owl:NamedIndividual ,
+                                 :拉丁文名称 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/《中国农作物病虫害（第三版）》
+:《中国农作物病虫害（第三版）》 rdf:type owl:NamedIndividual ,
+                          :专业书籍 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/偏施氮肥
+:偏施氮肥 rdf:type owl:NamedIndividual ,
+               :栽培因素 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/农业病虫害信息云数据库
+:农业病虫害信息云数据库 rdf:type owl:NamedIndividual ,
+                      :权威网站 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/半知菌亚门真菌
+:半知菌亚门真菌 rdf:type owl:NamedIndividual ,
+                  :分类地位 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/叶片
+:叶片 rdf:type owl:NamedIndividual ,
+             :发病部位 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/基部灰黑
+:基部灰黑 rdf:type owl:NamedIndividual ,
+               :具体症状 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/小麦隐匿柄锈菌
+:小麦隐匿柄锈菌 rdf:type owl:NamedIndividual ,
+                  :真菌 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/急性枯萎型
+:急性枯萎型 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/水稻
+:水稻 rdf:type owl:NamedIndividual ,
+             :作物 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/油菜黄单胞杆菌油菜致病变种
+:油菜黄单胞杆菌油菜致病变种 rdf:type owl:NamedIndividual ,
+                        :细菌 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/温汤浸种
+:温汤浸种 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/烟草花叶病毒
+:烟草花叶病毒 rdf:type owl:NamedIndividual ,
+                 :病毒 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/禾本科
+:禾本科 rdf:type owl:NamedIndividual ,
+              :作物类型 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/秧田期
+:秧田期 rdf:type owl:NamedIndividual ,
+              :发病时期 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/稻瘟病
+:稻瘟病 rdf:type owl:NamedIndividual ,
+              :病害 .
+
+
+###  http://www.semanticweb.org/feisi/ontologies/2024/6/crop/风雨
+:风雨 rdf:type owl:NamedIndividual ,
+             :传播方式 .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
