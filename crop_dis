@@ -1,0 +1,420 @@
+@prefix : <urn:absolute:u/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <urn:absolute:u/> .
+
+<https://fsy8520.github.io/onts/crop_dis> rdf:type owl:Ontology ;
+                                           rdfs:comment "这是关于作物病害的本体"@zh .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:domain <https://fsy8520.github.io/onts/crop_dis/作物> ;
+                      rdfs:range <https://fsy8520.github.io/onts/crop_dis/作物健康图像> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/为害
+<https://fsy8520.github.io/onts/crop_dis/为害> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                             rdfs:range <https://fsy8520.github.io/onts/crop_dis/发病部位> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/传播
+<https://fsy8520.github.io/onts/crop_dis/传播> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://fsy8520.github.io/onts/crop_dis/传播方式> ;
+                                             rdfs:range <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                             rdfs:comment "传播方式--(传播)-->病原"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/健康图像有
+<https://fsy8520.github.io/onts/crop_dis/健康图像有> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <https://fsy8520.github.io/onts/crop_dis/作物> ;
+                                                rdfs:range <https://fsy8520.github.io/onts/crop_dis/作物健康图像> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/发病于
+<https://fsy8520.github.io/onts/crop_dis/发病于> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                              rdfs:range <https://fsy8520.github.io/onts/crop_dis/发病时期> ;
+                                              rdfs:comment "作物--（发病于）-->发病部位"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/属
+<https://fsy8520.github.io/onts/crop_dis/属> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                            rdfs:range <https://fsy8520.github.io/onts/crop_dis/分类地位> ;
+                                            rdfs:comment "病原--(属)-->分类地位"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/归类于
+<https://fsy8520.github.io/onts/crop_dis/归类于> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://fsy8520.github.io/onts/crop_dis/作物> ;
+                                              rdfs:range <https://fsy8520.github.io/onts/crop_dis/作物类型> ;
+                                              rdfs:comment "作物--(归类于)-->作物类型"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/影响
+<https://fsy8520.github.io/onts/crop_dis/影响> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://fsy8520.github.io/onts/crop_dis/发病因素> ;
+                                             rdfs:range <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                             rdfs:comment "发病因素--(影响)-->病害"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/来源于
+<https://fsy8520.github.io/onts/crop_dis/来源于> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                              rdfs:range <https://fsy8520.github.io/onts/crop_dis/信息来源> ;
+                                              rdfs:comment "病害--(来源于)-->信息来源"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/病害图像有
+<https://fsy8520.github.io/onts/crop_dis/病害图像有> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                                rdfs:range <https://fsy8520.github.io/onts/crop_dis/作物病害图像> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/病害有
+<https://fsy8520.github.io/onts/crop_dis/病害有> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://fsy8520.github.io/onts/crop_dis/作物> ;
+                                              rdfs:range <https://fsy8520.github.io/onts/crop_dis/病害> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/症状有
+<https://fsy8520.github.io/onts/crop_dis/症状有> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://fsy8520.github.io/onts/crop_dis/发病部位> ;
+                                              rdfs:range <https://fsy8520.github.io/onts/crop_dis/具体症状> ;
+                                              rdfs:comment """症状类型--(症状有)-->具体症状
+发病部位--(症状有)-->具体症状
+发病阶段--(症状有)-->具体症状"""@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/直接引发
+<https://fsy8520.github.io/onts/crop_dis/直接引发> rdf:type owl:ObjectProperty ;
+                                               rdfs:domain <https://fsy8520.github.io/onts/crop_dis/初侵染源> ;
+                                               rdfs:range <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                               rdfs:comment "初侵染源--(直接引发)-->病害"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/称
+<https://fsy8520.github.io/onts/crop_dis/称> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                            rdfs:range <https://fsy8520.github.io/onts/crop_dis/拉丁文名称> ;
+                                            rdfs:comment "病原--(称)-->拉丁文名称"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/致使
+<https://fsy8520.github.io/onts/crop_dis/致使> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                             rdfs:range <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                             rdfs:comment "病原--(致使)-->病害"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/防治
+<https://fsy8520.github.io/onts/crop_dis/防治> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://fsy8520.github.io/onts/crop_dis/防治方法> ;
+                                             rdfs:range <https://fsy8520.github.io/onts/crop_dis/病害> ;
+                                             rdfs:comment "防治方法--(防治)-->病害"@zh .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://fsy8520.github.io/onts/crop_dis/专业书籍
+<https://fsy8520.github.io/onts/crop_dis/专业书籍> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/信息来源> ;
+                                               rdfs:comment "代表某作物的某病害相关信息来源于专业书籍"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/传播方式
+<https://fsy8520.github.io/onts/crop_dis/传播方式> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/侵染循环> ;
+                                               rdfs:comment "病原传播的方式"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/作物
+<https://fsy8520.github.io/onts/crop_dis/作物> rdf:type owl:Class ;
+                                             rdfs:comment "代表具体的作物"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/作物健康图像
+<https://fsy8520.github.io/onts/crop_dis/作物健康图像> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/图像信息> ;
+                                                 rdfs:comment "代表某作物的图像信息"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/作物病害图像
+<https://fsy8520.github.io/onts/crop_dis/作物病害图像> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/图像信息> ;
+                                                 rdfs:comment "代表某病害的图像信息"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/作物类型
+<https://fsy8520.github.io/onts/crop_dis/作物类型> rdf:type owl:Class ;
+                                               rdfs:comment "代表作物所属类型"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/侵染循环
+<https://fsy8520.github.io/onts/crop_dis/侵染循环> rdf:type owl:Class ;
+                                               rdfs:comment "病原体侵染过程"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/信息来源
+<https://fsy8520.github.io/onts/crop_dis/信息来源> rdf:type owl:Class ;
+                                               rdfs:comment "代表某作物的某病害相关信息的来源"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/其他因素
+<https://fsy8520.github.io/onts/crop_dis/其他因素> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/发病因素> ;
+                                               rdfs:comment "代表影响作物病害发生的具体地理位置信息"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/具体症状
+<https://fsy8520.github.io/onts/crop_dis/具体症状> rdf:type owl:Class ;
+                                               rdfs:comment "代表某作物不同发病阶段、不同发病部位以及不同症状类型的具体症状"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/农业防治
+<https://fsy8520.github.io/onts/crop_dis/农业防治> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/防治方法> ;
+                                               rdfs:comment "代表用于防治某作物的某病害的具体农业措施方法"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/分类地位
+<https://fsy8520.github.io/onts/crop_dis/分类地位> rdf:type owl:Class ;
+                                               rdfs:comment "代表致使某作物的某病害发生的病原体所属的分类地位"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/初侵染源
+<https://fsy8520.github.io/onts/crop_dis/初侵染源> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/侵染循环> ;
+                                               rdfs:comment "直接引发病害的初侵染源"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/化学防治
+<https://fsy8520.github.io/onts/crop_dis/化学防治> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/防治方法> ;
+                                               rdfs:comment "代表用于防治某作物的某病害的具体化学措施方法"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/发病因素
+<https://fsy8520.github.io/onts/crop_dis/发病因素> rdf:type owl:Class ;
+                                               rdfs:comment "代表影响作物病害发生的一系列环境因素" .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/发病时期
+<https://fsy8520.github.io/onts/crop_dis/发病时期> rdf:type owl:Class ;
+                                               rdfs:comment "代表某作物发病时所处于的阶段"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/发病部位
+<https://fsy8520.github.io/onts/crop_dis/发病部位> rdf:type owl:Class ;
+                                               rdfs:comment "代表某作物发病于具体的部位"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/图像信息
+<https://fsy8520.github.io/onts/crop_dis/图像信息> rdf:type owl:Class ;
+                                               rdfs:comment "代表相关的图像数据信息"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/拉丁文名称
+<https://fsy8520.github.io/onts/crop_dis/拉丁文名称> rdf:type owl:Class ;
+                                                rdfs:comment "代表致使某作物的某病害发生的病原体的拉丁文名称"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/权威网站
+<https://fsy8520.github.io/onts/crop_dis/权威网站> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/信息来源> ;
+                                               rdfs:comment "代表某作物的某病害相关信息来源于权威网站"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/栽培因素
+<https://fsy8520.github.io/onts/crop_dis/栽培因素> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/发病因素> ;
+                                               rdfs:comment "代表影响作物病害发生的具体田间分布信息"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/物理防治
+<https://fsy8520.github.io/onts/crop_dis/物理防治> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/防治方法> ;
+                                               rdfs:comment "代表用于防治某作物的某病害的具体物理措施方法，在文本数据中暂缺实例描述"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/环境因素
+<https://fsy8520.github.io/onts/crop_dis/环境因素> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/发病因素> ;
+                                               rdfs:comment "代表影响作物病害发生的具体气候状况信息"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/生物防治
+<https://fsy8520.github.io/onts/crop_dis/生物防治> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/防治方法> ;
+                                               rdfs:comment "代表用于防治某作物的某病害的具体生物措施方法，在文本数据中暂缺实例描述"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/病原
+<https://fsy8520.github.io/onts/crop_dis/病原> rdf:type owl:Class ;
+                                             rdfs:comment "代表致使某作物某病害发生的具体病原体"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/病害
+<https://fsy8520.github.io/onts/crop_dis/病害> rdf:type owl:Class ;
+                                             rdfs:comment "代表某作物的具体病害" .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/病毒
+<https://fsy8520.github.io/onts/crop_dis/病毒> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                             rdfs:comment "代表致使某作物某病害发生的具体病原体是病毒"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/真菌
+<https://fsy8520.github.io/onts/crop_dis/真菌> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                             rdfs:comment "代表致使某作物某病害发生的具体病原体是真菌"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/细菌
+<https://fsy8520.github.io/onts/crop_dis/细菌> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://fsy8520.github.io/onts/crop_dis/病原> ;
+                                             rdfs:comment "代表致使某作物某病害发生的具体病原体是细菌"@zh .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/防治方法
+<https://fsy8520.github.io/onts/crop_dis/防治方法> rdf:type owl:Class ;
+                                               rdfs:comment "代表用于防治某作物的某病害的具体措施方法"@zh .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://fsy8520.github.io/onts/crop_dis#10%401抗菌剂1000倍液
+<https://fsy8520.github.io/onts/crop_dis#10%401抗菌剂1000倍液> rdf:type owl:NamedIndividual ,
+                                                                   <https://fsy8520.github.io/onts/crop_dis/化学防治> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis#《中国农作物病虫害(第三版)》
+<https://fsy8520.github.io/onts/crop_dis#《中国农作物病虫害(第三版)》> rdf:type owl:NamedIndividual .
+
+
+###  https://fsy8520.github.io/onts/crop_dis#气温28~32℃
+<https://fsy8520.github.io/onts/crop_dis#气温28~32℃> rdf:type owl:NamedIndividual ,
+                                                            <https://fsy8520.github.io/onts/crop_dis/环境因素> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/Pyricularia_oryzae_Cav
+<https://fsy8520.github.io/onts/crop_dis/Pyricularia_oryzae_Cav> rdf:type owl:NamedIndividual ,
+                                                                          <https://fsy8520.github.io/onts/crop_dis/拉丁文名称> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/《中国农作物病虫害（第三版）》
+<https://fsy8520.github.io/onts/crop_dis/《中国农作物病虫害（第三版）》> rdf:type owl:NamedIndividual ,
+                                                                   <https://fsy8520.github.io/onts/crop_dis/专业书籍> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/偏施氮肥
+<https://fsy8520.github.io/onts/crop_dis/偏施氮肥> rdf:type owl:NamedIndividual ,
+                                                        <https://fsy8520.github.io/onts/crop_dis/栽培因素> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/农业病虫害信息云数据库
+<https://fsy8520.github.io/onts/crop_dis/农业病虫害信息云数据库> rdf:type owl:NamedIndividual ,
+                                                               <https://fsy8520.github.io/onts/crop_dis/权威网站> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/半知菌亚门真菌
+<https://fsy8520.github.io/onts/crop_dis/半知菌亚门真菌> rdf:type owl:NamedIndividual ,
+                                                           <https://fsy8520.github.io/onts/crop_dis/分类地位> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/叶片
+<https://fsy8520.github.io/onts/crop_dis/叶片> rdf:type owl:NamedIndividual ,
+                                                      <https://fsy8520.github.io/onts/crop_dis/发病部位> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/基部灰黑
+<https://fsy8520.github.io/onts/crop_dis/基部灰黑> rdf:type owl:NamedIndividual ,
+                                                        <https://fsy8520.github.io/onts/crop_dis/具体症状> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/害虫数量大
+<https://fsy8520.github.io/onts/crop_dis/害虫数量大> rdf:type owl:NamedIndividual ,
+                                                         <https://fsy8520.github.io/onts/crop_dis/其他因素> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/小麦隐匿柄锈菌
+<https://fsy8520.github.io/onts/crop_dis/小麦隐匿柄锈菌> rdf:type owl:NamedIndividual ,
+                                                           <https://fsy8520.github.io/onts/crop_dis/真菌> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/急性枯萎型
+<https://fsy8520.github.io/onts/crop_dis/急性枯萎型> rdf:type owl:NamedIndividual .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/文本数据中暂缺描述
+<https://fsy8520.github.io/onts/crop_dis/文本数据中暂缺描述> rdf:type owl:NamedIndividual ,
+                                                             <https://fsy8520.github.io/onts/crop_dis/生物防治> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/水稻
+<https://fsy8520.github.io/onts/crop_dis/水稻> rdf:type owl:NamedIndividual ,
+                                                      <https://fsy8520.github.io/onts/crop_dis/作物> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/油菜黄单胞杆菌油菜致病变种
+<https://fsy8520.github.io/onts/crop_dis/油菜黄单胞杆菌油菜致病变种> rdf:type owl:NamedIndividual ,
+                                                                 <https://fsy8520.github.io/onts/crop_dis/细菌> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/温汤浸种
+<https://fsy8520.github.io/onts/crop_dis/温汤浸种> rdf:type owl:NamedIndividual .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/烟草花叶病毒
+<https://fsy8520.github.io/onts/crop_dis/烟草花叶病毒> rdf:type owl:NamedIndividual ,
+                                                          <https://fsy8520.github.io/onts/crop_dis/病毒> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/病残体
+<https://fsy8520.github.io/onts/crop_dis/病残体> rdf:type owl:NamedIndividual ,
+                                                       <https://fsy8520.github.io/onts/crop_dis/初侵染源> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/禾本科
+<https://fsy8520.github.io/onts/crop_dis/禾本科> rdf:type owl:NamedIndividual ,
+                                                       <https://fsy8520.github.io/onts/crop_dis/作物类型> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/秧田期
+<https://fsy8520.github.io/onts/crop_dis/秧田期> rdf:type owl:NamedIndividual ,
+                                                       <https://fsy8520.github.io/onts/crop_dis/发病时期> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/稻瘟病
+<https://fsy8520.github.io/onts/crop_dis/稻瘟病> rdf:type owl:NamedIndividual ,
+                                                       <https://fsy8520.github.io/onts/crop_dis/病害> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/采用配方施肥
+<https://fsy8520.github.io/onts/crop_dis/采用配方施肥> rdf:type owl:NamedIndividual ,
+                                                          <https://fsy8520.github.io/onts/crop_dis/农业防治> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/铺挂银灰色膜避蚜
+<https://fsy8520.github.io/onts/crop_dis/铺挂银灰色膜避蚜> rdf:type owl:NamedIndividual ,
+                                                            <https://fsy8520.github.io/onts/crop_dis/物理防治> .
+
+
+###  https://fsy8520.github.io/onts/crop_dis/风雨
+<https://fsy8520.github.io/onts/crop_dis/风雨> rdf:type owl:NamedIndividual ,
+                                                      <https://fsy8520.github.io/onts/crop_dis/传播方式> .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
